@@ -42,29 +42,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
   <meta charset="UTF-8">
   <title>Edit Produk</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-  <h1>Edit Produk</h1>
-  <p><a href="index.php">Kembali</a></p>
-  <?php if ($message) echo "<p>$message</p>"; ?>
-  <form method="post" enctype="multipart/form-data">
-    <label>Nama: <input type="text" name="nama" value="<?php echo Utility::e($produk['nama']); ?>" required></label><br>
-    <label>Harga: <input type="number" name="harga" value="<?php echo $produk['harga']; ?>" required></label><br>
-    <label>Stok: <input type="number" name="stok" value="<?php echo $produk['stok']; ?>" required></label><br>
-    <label>Kategori: <input type="text" name="kategori" value="<?php echo Utility::e($produk['kategori']); ?>" required></label><br>
-    <label>Status:
-      <select name="status">
-        <option value="aktif" <?php echo $produk['status'] == 'aktif' ? 'selected' : ''; ?>>Aktif</option>
-        <option value="nonaktif" <?php echo $produk['status'] == 'nonaktif' ? 'selected' : ''; ?>>Nonaktif</option>
-      </select>
-    </label><br>
-    <label>Gambar: <input type="file" name="gambar"></label>
-    <?php if ($produk['gambar_path']): ?>
-      <img src="uploads/<?php echo Utility::e($produk['gambar_path']); ?>" width="50">
-    <?php endif; ?><br>
-    <button type="submit">Edit</button>
-  </form>
+  <header>
+    <h1>Edit Produk</h1>
+    <p><a class="btn" href="index.php">Kembali</a></p>
+  </header>
+
+  <main>
+    <?php if ($message) echo "<p class='message'>$message</p>"; ?>
+    <form method="post" enctype="multipart/form-data" class="form">
+      <label>Nama: <input type="text" name="nama" value="<?php echo Utility::e($produk['nama']); ?>" required></label>
+      <label>Harga: <input type="number" name="harga" value="<?php echo $produk['harga']; ?>" required></label>
+      <label>Stok: <input type="number" name="stok" value="<?php echo $produk['stok']; ?>" required></label>
+      <label>Kategori: <input type="text" name="kategori" value="<?php echo Utility::e($produk['kategori']); ?>" required></label>
+      <label>Status:
+        <select name="status">
+          <option value="aktif" <?php echo $produk['status'] == 'aktif' ? 'selected' : ''; ?>>Aktif</option>
+          <option value="nonaktif" <?php echo $produk['status'] == 'nonaktif' ? 'selected' : ''; ?>>Nonaktif</option>
+        </select>
+      </label>
+      <label>Gambar: <input type="file" name="gambar"></label>
+      <?php if ($produk['gambar_path']): ?>
+        <img src="uploads/<?php echo Utility::e($produk['gambar_path']); ?>" alt="<?php echo Utility::e($produk['nama']); ?>" width="100">
+      <?php endif; ?>
+      <button type="submit" class="btn">Edit</button>
+    </form>
+  </main>
 </body>
 
 </html>
