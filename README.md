@@ -70,17 +70,24 @@
 
 2. **Konfigurasi Koneksi Database**
    Buka inc/config.php dan sesuaikan:
+
+   ```
    define('DB_HOST', 'localhost');
    define('DB_USER', 'root');
    define('DB_PASS', '');
    define('DB_NAME', 'produk_crud');
    define('BASE_URL', 'http://localhost:8000/');
+   ```
 
 3. **Menjalankan Aplikasi**
    - Jalankan server PHP built-in:
+   ```
      php -S localhost:8000
+   ```
    - Akses aplikasi melalui browser:
+   ```
      http://localhost:8000
+   ```
 
 ## Contoh Skenario Uji Singkat
 
