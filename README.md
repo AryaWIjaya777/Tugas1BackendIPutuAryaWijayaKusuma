@@ -19,20 +19,26 @@
 
 - **Versi PHP:** 8.4.13
 - **DBMS:** MySQL
-- **Struktur Folder Ringkas:**
+- **Struktur Folder:**
   produk-root/
-  │
-  ├─ class/ # Database.php, Produk.php, Utility.php
-  ├─ uploads/ # folder untuk menyimpan gambar produk dan .gitkeep
-  ├─ inc/ # config.php
-  ├─ css/ # style.css
+  ├─ class/
+  │ ├─ Database.php
+  │ ├─ Produk.php
+  │ └─ Utility.php
+  ├─ uploads/
+  | └─ .gitkeep
+  ├─ inc/
+  │ └─ config.php
+  ├─ css/
+  │ └─ style.css
+  ├─ .gitignore
   ├─ index.php
   ├─ create.php
   ├─ edit.php
   ├─ delete.php
   ├─ detail.php
-  └─ README.md
-  ├─ schema.sql
+  ├─ README.md
+  └─ schema.sql
 
 - **Class Utama:**
   - `Database` → menangani koneksi database dan eksekusi query menggunakan PDO.
