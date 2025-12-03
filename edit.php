@@ -26,3 +26,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   $message = $produkModel->update($_GET['id'], $data) ? 'Produk berhasil diedit' : 'Gagal mengedit produk';
 }
+
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Produk</title>
+</head>
+
+<body>
+  <h1>Edit Produk</h1>
+  <p><a href="index.php">Kembali</a></p>
+  <?php if ($message) echo "<p>$message</p>"; ?>
+  <form method="post" enctype="multipart/form-data">
+    <label>Nama: <input type="text" name="nama" value="<?php echo Utility::e($produk['nama']); ?>" required></label><br>
+    <label>Harga: <input type="number" name="harga" value="<?php echo $produk['harga']; ?>" required></label><br>
+    <label>Stok: <input type="number" name="stok" value="<?php echo $produk['stok']; ?>" required></label><br>
+    <label>Kategori: <input type="text" name="kategori" value="<?php echo Utility::e($produk['kategori']); ?>" required></label><br>
+    <label>Status:
+      <select name="status">
+        <option value="aktif" <?php echo $produk['status'] == 'aktif' ? 'selected' : ''; ?>>Aktif</option>
+        <option value="nonaktif" <?php echo $produk['status'] == 'nonaktif' ? 'selected' : ''; ?>>Nonaktif</option>
+      </select>
+    </label><br>
+    <label>Gambar: <input type="file" name="gambar"></label>
+    <?php if ($produk['gambar_path']): ?>
+      <img src="uploads/<?php echo Utility::e($produk['gambar_path']); ?>" width="50">
+    <?php endif; ?><br>
+    <button type="submit">Update</button>
+  </form>
+</body>
+
+</html>

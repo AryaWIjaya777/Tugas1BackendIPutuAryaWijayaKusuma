@@ -41,7 +41,7 @@ $allProduk = $produkModel->getAll();
           <?php endif; ?>
         </td>
         <td>
-          <a href="update.php?id=<?php echo $produk['id_produk']; ?>">Edit</a> |
+          <a href="edit.php?id=<?php echo $produk['id_produk']; ?>">Edit</a> |
           <a href="delete.php?id=<?php echo $produk['id_produk']; ?>" onclick="return confirm('Yakin hapus?')">Hapus</a> |
           <a href="detail.php?id=<?php echo $produk['id_produk']; ?>">Detail</a>
         </td>
