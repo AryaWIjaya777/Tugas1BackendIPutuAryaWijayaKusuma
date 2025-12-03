@@ -19,7 +19,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data['gambar_path'] = $filename;
   }
 
-  $message = $produkModel->create($data) ? 'Produk berhasil ditambahkan' : 'Gagal menambahkan produk';
+  if ($produkModel->create($data)) {
+    header('Location: index.php');
+    exit;
+  } else {
+    $message = 'Gagal menambahkan produk';
+  }
 }
 
 ?>
