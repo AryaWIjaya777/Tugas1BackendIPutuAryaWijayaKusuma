@@ -24,7 +24,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data['gambar_path'] = $filename;
   }
 
-  $message = $produkModel->update($_GET['id'], $data) ? 'Produk berhasil diedit' : 'Gagal mengedit produk';
+  if ($produkModel->update($_GET['id'], $data)) {
+    $_SESSION['flash']['message'] = 'Produk berhasil diedit';
+    header('Location: index.php');
+    exit;
+  } else {
+    $_SESSION['flash']['message'] = 'Gagal mengedit produk';
+    header('Location: edit.php?id=' . $_GET['id']);
+    exit;
+  }
 }
 
 ?>
@@ -55,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php if ($produk['gambar_path']): ?>
       <img src="uploads/<?php echo Utility::e($produk['gambar_path']); ?>" width="50">
     <?php endif; ?><br>
-    <button type="submit">Update</button>
+    <button type="submit">Edit</button>
   </form>
 </body>
 
