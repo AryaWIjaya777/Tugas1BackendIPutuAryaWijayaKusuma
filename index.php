@@ -21,9 +21,6 @@ $allProduk = $produkModel->getAll();
   <table>
     <thead>
       <tr>
-        <th>Nama</th>
-        <th>Gambar</th>
-        <th>Aksi</th>
       </tr>
     </thead>
     <tbody>
