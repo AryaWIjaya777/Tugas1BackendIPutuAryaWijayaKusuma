@@ -32,7 +32,7 @@ $allProduk = $produkModel->getAll();
           <?php endif; ?>
           <div class="action-links">
             <a class="btn" href="edit.php?id=<?php echo $produk['id_produk']; ?>">Edit</a>
-            <a class="btn delete" href="delete.php?id=<?php echo $produk['id_produk']; ?>" onclick="return confirm('Yakin hapus?')">Hapus</a>
+            <a class="btn delete" href="delete.php?id=<?php echo $produk['id_produk']; ?>">Hapus</a>
             <a class="btn detail" href="detail.php?id=<?php echo $produk['id_produk']; ?>">Lihat Detail</a>
           </div>
         </div>

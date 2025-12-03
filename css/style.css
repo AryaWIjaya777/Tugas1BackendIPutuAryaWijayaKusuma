@@ -219,3 +219,20 @@ form .form-actions a:hover {
 .btn:hover {
   background-color: #2980b9;
 }
+
+.confirm-container {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.confirm-container p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.confirm-actions .btn {
+  margin: 5px;
+  width: 120px;
+  display: inline-block;
+  text-align: center;
+}
