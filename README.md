@@ -20,6 +20,8 @@
 - **Versi PHP:** 8.4.13
 - **DBMS:** MySQL
 - **Struktur Folder:**
+
+  ```
   produk-root/
   ├─ class/
   │ ├─ Database.php
@@ -39,6 +41,7 @@
   ├─ detail.php
   ├─ README.md
   └─ schema.sql
+  ```
 
 - **Class Utama:**
   - `Database` → menangani koneksi database dan eksekusi query menggunakan PDO.
