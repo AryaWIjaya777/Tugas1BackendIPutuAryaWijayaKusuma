@@ -19,9 +19,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   ];
 
   if (!empty($_FILES['gambar']['name'])) {
-    $filename = Utility::uniqueFilename($_FILES['gambar']['name']);
-    move_uploaded_file($_FILES['gambar']['tmp_name'], 'uploads/' . $filename);
-    $data['gambar_path'] = $filename;
+    $allowedTypes = ['image/jpeg', 'image/jpg', 'image/png'];
+    $maxSize = 2 * 1024 * 1024;
+    $fileType = $_FILES['gambar']['type'];
+    $fileSize = $_FILES['gambar']['size'];
+
+    if (!in_array($fileType, $allowedTypes)) {
+      $message = "Format file tidak diperbolehkan. Hanya jpg, jpeg, png.";
+    } elseif ($fileSize > $maxSize) {
+      $message = "Ukuran file terlalu besar. Maksimal 2 MB.";
+    } else {
+      $filename = Utility::uniqueFilename($_FILES['gambar']['name']);
+      move_uploaded_file($_FILES['gambar']['tmp_name'], 'uploads/' . $filename);
+      $data['gambar_path'] = $filename;
+    }
   }
 
   if ($produkModel->update($_GET['id'], $data)) {
