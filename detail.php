@@ -15,23 +15,34 @@ $message = '';
 <head>
   <meta charset="UTF-8">
   <title>Detail Produk</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-  <h1>Detail Produk</h1>
-  <p><a href="index.php">Kembali</a></p>
-  <ul>
-    <li>Id_produk: <?php echo $produk['id_produk']; ?></li>
-    <li>Nama: <?php echo Utility::e($produk['nama']); ?></li>
-    <li>Harga: <?php echo $produk['harga']; ?></li>
-    <li>Stok: <?php echo $produk['stok']; ?></li>
-    <li>Kategori: <?php echo Utility::e($produk['kategori']); ?></li>
-    <li>Status: <?php echo Utility::e($produk['status']); ?></li>
-    <li>Gambar: <?php if ($produk['gambar_path']): ?>
-        <img src="uploads/<?php echo Utility::e($produk['gambar_path']); ?>" width="100">
+  <header>
+    <h1>Detail Produk</h1>
+    <p><a class="btn" href="index.php">Kembali</a></p>
+  </header>
+
+  <main>
+    <div class="product-detail">
+      <h2><?php echo Utility::e($produk['nama']); ?></h2>
+      <?php if ($produk['gambar_path']): ?>
+        <img src="uploads/<?php echo Utility::e($produk['gambar_path']); ?>" alt="<?php echo Utility::e($produk['nama']); ?>">
+      <?php else: ?>
+        <div class="no-image">Tidak ada gambar</div>
       <?php endif; ?>
-    </li>
-  </ul>
+      <p><strong>Harga:</strong> <?php echo $produk['harga']; ?></p>
+      <p><strong>Stok:</strong> <?php echo $produk['stok']; ?></p>
+      <p><strong>Kategori:</strong> <?php echo Utility::e($produk['kategori']); ?></p>
+      <p><strong>Status:</strong> <?php echo Utility::e($produk['status']); ?></p>
+
+      <div class="action-links">
+        <a class="btn" href="edit.php?id=<?php echo $produk['id_produk']; ?>">Edit</a>
+        <a class="btn delete" href="delete.php?id=<?php echo $produk['id_produk']; ?>" onclick="return confirm('Yakin hapus?')">Hapus</a>
+      </div>
+    </div>
+  </main>
 </body>
 
 </html>
