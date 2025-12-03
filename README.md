@@ -93,15 +93,14 @@
 
 1. **Tambah 1 data**
 
-   - Buka halaman `Tambah Produk` (create.php)
+   - Buka halaman `Tambah Produk`
    - Isi form produk, unggah gambar, lalu klik tambah
    - Produk baru akan muncul di halaman utama
 
 2. **Tampilkan daftar data**
 
-   - Buka halaman utama (`index.php`)
-   - Semua produk yang tersimpan akan ditampilkan
-   - Untuk mengecek detail dari produk bisa klik lihat detail
+   - Di halaman utama semua produk yang tersimpan akan ditampilkan
+   - Untuk mengecek detail dari produk bisa klik `lihat detail`
 
 3. **Ubah data tertentu**
 
